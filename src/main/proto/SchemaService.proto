@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.gaurav.server.service;
+option java_outer_classname="SchemaService";
+option java_multiple_files = true;
+
+
+service NamespaceService {
+  rpc CreateNamespace(NamespaceCreationRequest) returns (NamespaceCreationResponse) ;
+}
+
+message NamespaceCreationRequest {
+  string namespace = 1;
+}
+
+message NamespaceCreationResponse {
+  bool isCreated = 1;
+}

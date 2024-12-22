@@ -1,5 +1,6 @@
 package com.gaurav;
 
+import com.gaurav.server.service.NamespaceServiceImpl;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
@@ -9,6 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Hello world!");
         Server server = ServerBuilder.forPort(5003)
+                .addService(new NamespaceServiceImpl())
                 .build();
 
         server.start();
