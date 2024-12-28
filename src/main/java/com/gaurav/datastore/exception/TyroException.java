@@ -17,4 +17,8 @@ public class TyroException extends Exception{
         super(cause);
         this.exceptionCode = exceptionCode;
     }
+
+    public ExceptionCode getExceptionCode() {
+        return exceptionCode;
+    }
 }
