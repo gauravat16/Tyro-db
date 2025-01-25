@@ -1,4 +1,6 @@
-package com.gaurav.datastore.schema;
+package com.gaurav.datastore.schema.datamodel;
+
+import com.gaurav.datastore.schema.Validator;
 
 import java.util.Objects;
 

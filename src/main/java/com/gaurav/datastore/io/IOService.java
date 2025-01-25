@@ -7,7 +7,11 @@ import java.util.Optional;
 
 public interface IOService {
 
-    void put(URI uri, byte[] bytes) throws TyroException;
+    boolean createFile(URI uri, byte[] bytes) throws TyroException;
+
+    void updateFile(URI uri, byte[] bytes) throws TyroException;
+
+    boolean createDirectory(URI uri) throws TyroException;
 
     Optional<byte[]> readAllData(URI uri, byte[] bytes) throws TyroException;
 }

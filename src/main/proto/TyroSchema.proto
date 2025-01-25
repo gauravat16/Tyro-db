@@ -1,0 +1,45 @@
+syntax = "proto3";
+package com.gaurav.datastore.schema.datamodel.proto;
+option java_multiple_files = true;
+
+message TyroSchema {
+  Namespace namespace = 1;
+  int32 version = 2;
+
+}
+
+message Namespace {
+  string name = 1;
+  int32 version = 2;
+  Table table = 3;
+}
+
+message ColumnFamily {
+  string name = 1;
+  int32 version = 2;
+}
+
+message Table {
+  string name = 1;
+  int32 version = 2;
+  repeated ColumnFamily columnFamilies = 3;
+}
+
+message Column {
+  string name = 1;
+  int32 version = 2;
+  bytes value = 3;
+}
+
+message Row {
+  int32 version = 1;
+  bytes key = 2;
+  repeated RowData rowData = 3;
+  int64 ttl = 4;
+  int64 timeStamp = 5;
+}
+
+message RowData{
+  ColumnFamily columnFamily = 1;
+  repeated Column columns = 2;
+}

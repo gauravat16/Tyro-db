@@ -1,7 +1,8 @@
 package com.gaurav.datastore.schema;
 
+import com.gaurav.datastore.schema.datamodel.ColumnFamily;
+
 import java.util.List;
-import java.util.Set;
 
 public class Table implements Validator {
     private final String name;

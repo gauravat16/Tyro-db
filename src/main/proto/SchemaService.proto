@@ -1,18 +1,40 @@
 syntax = "proto3";
 
 package com.gaurav.server.service;
-option java_outer_classname="SchemaService";
+option java_outer_classname = "SchemaService";
 option java_multiple_files = true;
 
 
+
 service NamespaceService {
-  rpc CreateNamespace(NamespaceCreationRequest) returns (NamespaceCreationResponse) ;
+  rpc CreateNamespace(NamespaceCreationRequest) returns (Response) ;
+}
+
+service TableService {
+  rpc CreateTable(TableCreationRequest) returns (Response);
+  rpc AddColumnFamily(ColumnFamilyCreationRequest) returns (Response);
 }
 
 message NamespaceCreationRequest {
-  string namespace = 1;
+  string name = 1;
+  int32 version = 2;
 }
 
-message NamespaceCreationResponse {
-  bool isCreated = 1;
+message ColumnFamilyCreationRequest {
+  string cfName = 1;
+  string tableName = 2;
+  int32 version = 3;
 }
+
+message TableCreationRequest {
+  string name = 1;
+  int32 version = 2;
+  repeated ColumnFamilyCreationRequest columnFamilies = 3;
+}
+
+
+message Response {
+  int32 status = 1;
+  int32 version = 2;
+}
+

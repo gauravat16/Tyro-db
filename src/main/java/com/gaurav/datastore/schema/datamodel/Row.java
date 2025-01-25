@@ -1,7 +1,5 @@
 package com.gaurav.datastore.schema.datamodel;
 
-import com.gaurav.datastore.schema.ColumnFamily;
-
 import java.util.*;
 
 public class Row {
